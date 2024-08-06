@@ -15,6 +15,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 gem "stimulus-rails"
+gem "tailwindcss-rails"
 
 gem "jbuilder"
 
