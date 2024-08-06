@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
   def index 
-    
+    @books = Book.get_books
   end
 
   def new 
