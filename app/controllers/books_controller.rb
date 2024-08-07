@@ -27,8 +27,10 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def delete 
-  
+  def destroy 
+    Book.delete_book(params[:id].to_i)
+
+    redirect_to books_path
   end
 
   private 

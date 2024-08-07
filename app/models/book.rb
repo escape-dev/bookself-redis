@@ -29,6 +29,13 @@ class Book < ApplicationRecord
     redis.set("books", book)
   end
 
+  def self.delete_book id 
+    book = JSON.parse(redis.get("books"))
+    book.delete_at(id)
+
+    redis.set("books", book)
+  end
+
   private 
 
   def self.redis
