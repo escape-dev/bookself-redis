@@ -1,0 +1,15 @@
+<h1 class="font-bold text-2xl">Insert new Book</h1>
+
+<div class="mt-4">
+  <%= form_with url: "/books/#{@id}", method: :put, class: "flex flex-col space-y-4" do |form| %>
+    <div class="flex flex-col gap-2">
+      <%= form.label :name, "Name" %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="flex flex-col gap-2">
+      <%= form.label :description, "Description" %>
+      <%= form.text_area :description %>
+    </div>
+    <%= form.submit "Insert", class: "w-fit px-4 py-2 text-white bg-blue-500 rounded-xl" %>
+  <% end %>
+</div>

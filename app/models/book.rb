@@ -17,6 +17,18 @@ class Book < ApplicationRecord
     redis.set("books", book)
   end
 
+  def self.update_book params
+    book_params = {
+      name: params[:name],
+      description: params[:description],
+    }.to_json
+    book_available = redis.get("books")    
+    book = JSON.parse(book_available)
+    book[params[:id]] = book_params
+
+    redis.set("books", book)
+  end
+
   private 
 
   def self.redis

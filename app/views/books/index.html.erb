@@ -9,13 +9,18 @@
       <thead>
         <th class="border border-black">Name</th>
         <th class="border border-black">Description</th>
+        <th class="border border-black">Action</th>
       </thead>
       <tbody class="text-center">
-        <% @books.each do |book| %>
+        <% @books.each_with_index do |book, index| %>
           <tr>
             <% unless @books.empty? %>
               <td class="border border-black"> <%= book&.dig("name") %> </td>
               <td class="border border-black"> <%= book&.dig("description") %> </td>
+              <td class="p-2 space-y-2 border border-black">
+                <%= button_to "Edit", { action: :edit, id: index }, method: :get, class: "w-full p-2 text-white bg-yellow-500 rounded-xl" %>
+                <%= button_to "Delete", { action: :edit, id: index }, method: :get, class: "w-full p-2 text-white bg-red-500 rounded-xl" %>
+              </td>
             <% else %>
               <td class="text-center border border-black" colspan="2">No book available</td>
             <% end %>
